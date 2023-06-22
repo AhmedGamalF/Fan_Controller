@@ -1,0 +1,25 @@
+/******************************************************************************
+ *
+ * Module: Motor
+ *
+ * File Name: motor.h
+ *
+ * Description: Source file for the AVR MOTOR driver
+ *
+ *
+ *******************************************************************************/
+
+
+#ifndef MOTOR_H_
+#define MOTOR_H_
+# include "std_types.h"
+/*
+ *  Description:
+ * The Function responsible for setup the direction for the two motor pins.
+ * Stop at the DC-Motor.
+ */
+void DcMotor_Init(void);
+
+void DcMotor_Rotate(DcMotor_State state,uint8 speed);
+
+#endif /* MOTOR_H_ */

@@ -1,0 +1,43 @@
+/******************************************************************************
+ *
+ * Module: Motor
+ *
+ * File Name: motor.h
+ *
+ * Description: Source file for the AVR MOTOR driver
+ *
+ *
+ * Author : Ahmed Gamal
+ *
+ *******************************************************************************/
+
+
+#ifndef MOTOR_H_
+#define MOTOR_H_
+# include "std_types.h"
+/*******************************************************************************
+ *                         Types Declaration                                   *
+ *******************************************************************************/
+
+typedef enum{
+	STOP,ACW,CW
+}DC_Motor_State;
+
+/*******************************************************************************
+ *                              Functions Prototypes                           *
+ *******************************************************************************/
+/*
+ *  Description:
+ * The Function responsible for setup the direction for the two motor pins.
+ * Stop at the DC-Motor.
+ */
+void DcMotor_Init(void);
+
+/*
+ * Description:
+ * The function responsible for rotate the DC Motor CW/ or A-CW or stop the motor based on the state input state value.
+ * Send the required duty cycle to the PWM driver based on the required speed value.
+ * */
+void DcMotor_Rotate(DC_Motor_State state,uint8 speed);
+
+#endif /* MOTOR_H_ */

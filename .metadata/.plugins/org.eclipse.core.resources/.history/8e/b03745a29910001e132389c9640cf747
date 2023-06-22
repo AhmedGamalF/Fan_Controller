@@ -1,0 +1,58 @@
+/******************************************************************************
+ *
+ * Module: Motor
+ *
+ * File Name: motor.c
+ *
+ * Description: Source file for the AVR MOTOR driver
+ *
+ *
+ *******************************************************************************/
+
+# include "motor.h"
+#include "gpio.h"
+# include "pwm.h"
+#include "common_macros.h"
+
+/*******************************************************************************
+ *                      Functions Definitions                                  *
+ *******************************************************************************/
+/*
+ *  Description:
+ * The Function responsible for setup the direction for the two motor pins.
+ * Stop at the DC-Motor.
+ */
+void DcMotor_Init(void)
+{
+	/* set the PIN0 & PIN1 in PORTD as output pins */
+	GPIO_setupPinDirection(PORTC_ID, PIN0_ID, PIN_OUTPUT);
+	GPIO_setupPinDirection(PORTC_ID, PIN1_ID, PIN_OUTPUT);
+	/* Set initial value to(PIN0 & PIN1) the motor PINS*/
+	GPIO_writePin(PORTC_ID, PIN0_ID, LOGIC_LOW);
+	GPIO_writePin(PORTC_ID, PIN1_ID, LOGIC_LOW);
+}
+
+/*
+ * Description:
+ * The function responsible for rotate the DC Motor CW/ or A-CW or stop the motor based on the state input state value.
+ * Send the required duty cycle to the PWM driver based on the required speed value.
+ * */
+void DcMotor_Rotate(DC_Motor_State state,uint8 speed)
+{
+	/* Set the Motor rotate direction*/
+	if(state == CW)
+	{
+		/* Set the Motor rotates clockwise*/
+		GPIO_writePin(PORTC_ID, PIN0_ID, LOGIC_LOW);
+		GPIO_writePin(PORTC_ID, PIN1_ID, LOGIC_HIGH);
+	}
+	else if(state== ACW)
+	{
+		/*the Motor rotates Anti clockwise*/
+		GPIO_writePin(PORTC_ID, PIN0_ID, LOGIC_HIGH);
+		GPIO_writePin(PORTC_ID, PIN1_ID, LOGIC_LOW);
+	}
+	/* Set the Motor speed*/
+	PWM_Timer0_Start(speed);
+}
+

@@ -1,0 +1,14 @@
+/******************************************************************************
+ *
+ * Module: Motor
+ *
+ * File Name: motor.c
+ *
+ * Description: Source file for the AVR MOTOR driver
+ *
+ *
+ *******************************************************************************/
+
+# include "motor.h"
+#include "gpio.h"
+#include "common_macros.h"

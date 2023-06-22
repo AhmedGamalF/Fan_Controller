@@ -1,0 +1,34 @@
+??:??:?? **** Incremental Build of configuration Debug for project pwm ****
+make all 
+Building file: ../App.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=1000000UL -MMD -MP -MF"App.d" -MT"App.o" -c -o "App.o" "../App.c"
+Finished building: ../App.c
+ 
+Building target: pwm.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,pwm.map -mmcu=atmega32 -o "pwm.elf"  ./App.o ./gpio.o ./pwm.o   
+Finished building target: pwm.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S pwm.elf  >"pwm.lss"
+Finished building: pwm.lss
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 pwm.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    2024 bytes (6.2% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+??:??:?? Build Finished. 0 errors, 0 warnings. (took 460ms)
+

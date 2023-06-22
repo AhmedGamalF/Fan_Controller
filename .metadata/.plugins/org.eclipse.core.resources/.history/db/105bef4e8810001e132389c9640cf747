@@ -1,0 +1,29 @@
+/******************************************************************************
+ *
+ * Module: Motor
+ *
+ * File Name: motor.c
+ *
+ * Description: Source file for the AVR MOTOR driver
+ *
+ *
+ *******************************************************************************/
+
+# include "motor.h"
+#include "gpio.h"
+#include "common_macros.h"
+
+/*******************************************************************************
+ *                              Functions Prototypes                           *
+ *******************************************************************************/
+
+/*
+ *  Description:
+ * The Function responsible for setup the direction for the two motor pins.
+ * Stop at the DC-Motor.
+ */
+void DcMotor_Init(void)
+{
+
+}
+

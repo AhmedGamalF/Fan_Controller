@@ -1,0 +1,35 @@
+/******************************************************************************
+ *
+ * Module: Motor
+ *
+ * File Name: motor.c
+ *
+ * Description: Source file for the AVR MOTOR driver
+ *
+ *
+ *******************************************************************************/
+
+# include "motor.h"
+#include "gpio.h"
+#include "common_macros.h"
+
+/*******************************************************************************
+ *                              Functions Prototypes                           *
+ *******************************************************************************/
+
+/*
+ *  Description:
+ * The Function responsible for setup the direction for the two motor pins.
+ * Stop at the DC-Motor.
+ */
+void DcMotor_Init(void)
+{
+	/* set the PIN0 & PIN1 in PORTD as output pins */
+	GPIO_setupPinDirection(PORTD_ID, PIN0_ID, PIN_OUTPUT);
+	GPIO_setupPinDirection(PORTD_ID, PIN0_ID, PIN_OUTPUT);
+	/* Set initial value to( the two pins) the motor*/
+	GPIO_writePin(PORTD_ID, PIN0_ID, LOGIC_LOW);
+	GPIO_writePin(PORTD_ID, PIN0_ID, LOGIC_LOW);
+
+}
+
